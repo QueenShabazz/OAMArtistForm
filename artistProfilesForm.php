@@ -1,165 +1,363 @@
-<!-- https://wordpress.org/support/topic/saving-data-from-form-to-database-table/ -->
+<section class="interior-page single">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 content-page">
+            <form class="artform form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="col">
+                            <b>
+                                <h6>Hey Artist! What's your name, and how can we reach you?</h6>
+                            </b>
+                        </div>
+                        <div class="col top">
+                            <div class="col-sm-1 input-group-prepend">
+                                <label for="fullname" class="control-label col-sm-2">
+                                    <i class="fa fa-user-circle"></i>
+                                    <p>Name </p>
+                                </label>
+                            </div>
+                            <div class="col-sm-11">
+                                <input class="form-control" type="text" name="fullname" id="fullname" required>
+                            </div>
+                        </div>
 
 
-<?php
-/*
- * Template Name: Contact Page
- */
+                    </div>
+                    <div class="form-group">
 
-get_header();
+                        <div class="col top">
+                            <div class="col-sm-1 input-group-prepend">
+                                <label for="email" class="control-label col-sm-2">
+                                    <i class="fa fa-at"></i>
+                                    <p> Email </p>
+                                </label>
+                            </div>
+                            <div class="col-sm-11">
+                                <input class="form-control" type="email" name="email" id="email" required>
+                            </div>
+                        </div>
 
-if ( ! empty( $_POST ) ) {
-    // Sanitize the POST field
-    // Generate email content
-    // Send to appropriate email
-}
+                    </div>
+                    <div class="form-group">
+                        <div class="col top">
+                            <div class="col-sm-1 input-group-prepend">
+                                <label for="phone" class="control-label col-sm-2">
+                                    <i class="fa fa-phone"></i>
+                                    <p>Number</p>
+                                </label>
+                            </div>
+                            <div class="col-sm-11">
+                                <input class="form-control" type="tel" id="phone" name="phone"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-555" required>
+                            </div>
+                        </div>
+                    </div>
 
-?>
+                    <div class="form-row">
 
-<div id="content">
-<form action="" method="post">
-    <label for="fullname">Artist Name</label>
-        <input type="text" name="fullname" id="fullname" required>
-        <label for="email">Email Address</label>
-        <input type="email" name="email" id="email" required>
-		<label for="phone"> Phone Number</label>
-		<input type="tel" id="phone" name="phone"
-       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-       required>
-		<label for="affiliation">
-What is your affiliation with Oakland</label>
+                        <div class="col">
+                            <b>
+                                <h6>What is your affiliation with Oakland?</h6>
+                            </b>
+                        </div>
 
-		<label><input type="checkbox" value=""/>Live in Oakland (please provide address, note this is for internal use and will not be published)</label><textarea rows="1" cols="20" style="resize:none;" name="liveaffil"></textarea>
-		<label><input type="checkbox" value=""/>Work or have a studio in Oakland (please provide address, note this is for internal use and will not be published) </label><textarea rows="1" cols="20" style="resize:none;" name="workaffil"></textarea>
-        <label for="social">Please list links to artists web site, Facebook page, Instagram account, Pinterest or other digital presence, separated by commas.</label> 
-        <textarea name="social" id="social"></textarea>
-        <label for="message">Your Message</label>
-        <textarea name="message" id="message"></textarea>
-        <label for="img">Please upload 1-8 jpegs showing your work </label>
-        <input type="file" name="img" accept="image/png, image/jpeg" multiple>
+                        <label class="control-label col-sm-12">
+                            <input name="liveaffil" type="checkbox" />
+                            <p class="col-md-6"> Live in Oakland (please provide address, note this is for internal use
+                                and will not be published)
+                            </p>
+                            <textarea class="form-control" rows="2" cols="50" style="resize:none;"
+                                name="liveaffilBlurb"> </textarea>
+                        </label>
+                        <label class="control-label  col-sm-12">
+                            <input name="workaffil" type="checkbox" />
+                            <i class="fa fa-work"></i>
+                            <p class="col-md-6"> Work or have a studio in Oakland (please provide address, note this is
+                                for internal use and will not be published)</p>
+                            <textarea class="form-control" rows="2" cols="50" style="resize:none;"
+                                name="workaffilBlurb"> </textarea>
+                        </label>
 
-       <label> Is your work (check all that apply)</label>
-       <label for="2d"> 2D made to hang on a wall</label>
-       <input type="checkbox" name="2dmural">
-       <label for="2dmural"> 2D mural painted directly on a wall </label>
-       <input type="checkbox" name="2d">
-       <label for="3d"> 3D made to hang on a wall</label>
-       <input type="checkbox" name="3d">
-       <label for="3dceil"> 3D meant to hang from the ceiling</label>
-       <input type="checkbox" name="3dceil">
-       <label for="3dex"> 3D meant to be experienced in the round</label>
-       <input type="checkbox" name="3dex">
-       <label for="install"> Installation-based</label>
-       <input type="checkbox" name="install">
-       <label for="misc"> Light, digital, or other media</label>
-       <input type="checkbox" name="misc">
-       <label for="other"> other</label>
-       <input type="checkbox" name="other"><input type="text" id="otherValue" name="other">
+                    </div>
+                    <br>
 
-       <label> Is your work made primarily from (check all that apply) </label>
-       <label for="paint"> Paint</label>
-       <input type="checkbox" name="paint">
-       <label for="Photography">Photography</label>
-       <input type="checkbox" name="Photography">
-       <label for="Fiber"> Fiber or textile</label>
-       <input type="checkbox" name="Fiber">
-       <label for="Wood"> Wood</label>
-       <input type="checkbox" name="Wood">
-       <label for="Metal"> Metal</label>
-       <input type="checkbox" name="Metal">
-       <label for="Glass"> Glass</label>
-       <input type="checkbox" name="Glass">
-       <label for="Ceramic"> Ceramic</label>
-       <input type="checkbox" name="Ceramic">
-       <label for="otherMedia"> Mixed media or other</label>
-       <input type="checkbox" name="otherMedia"><input type="text" id="otherMedia" name="otherMedia">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label class="control-label">
+                                <b>
+                                    <h6>Please list links to artists web site, Facebook page, Instagram account,
+                                        Pinterest or other digital presence, separated by commas.</h6>
+                                </b>
+                            </label>
+                            <ul class="col-md-12">
+                                <li class="col-md-12">
+                                    <i class="col-md fa fa-facebook"> </i>
+                                    <input class="col-md-11 form-control" type="text" name="facebook">
 
-       <label> Some people are looking to support diversity by supporting artists who are aligned with certain social groups. If you would like to be identified with one of the following groups, please check as many as apply: </label>
-       <label for="Black"> Black</label>
-       <input type="checkbox" name="Black">
-       <label for="Asian"> Asian</label>
-       <input type="checkbox" name="Asian">
-       <label for="Pacific"> Pacific Islander</label>
-       <input type="checkbox" name="Pacific">
-       <label for="Native"> Native American</label>
-       <input type="checkbox" name="Native">
-       <label for="LatinX"> LatinX</label>
-       <input type="checkbox" name="LatinX">
-       <label for="South-East"> South-East Asian</label>
-       <input type="checkbox" name="South-East">
-       <label for="Euro"> Euro-Caucasian</label>
-       <input type="checkbox" name="Euro">
-       <label for="LGTBQ"> LGTBQ</label>
-       <input type="checkbox" name="LGTBQ">
-       <label for="Disabled"> Disabled</label>
-       <input type="checkbox" name="Disabled">
-       <label for="OtherRace"> Other</label>
-       <input type="checkbox" name="OtherRace"><input type="text" id="OtherRace" name="OtherRace">
-       <label for="size">Some people are looking to purchase or show work of a certain size. Would you say the work you have to offer is typically:</label>
-       <select name="size" id="size">
-            <option value="small">Small (under 24 inches wide)</option>
-            <option value="medium">Medium (24-48 inches wide) </option>
-            <option value="large">Large (48-84 inches wide)</option>
-            <option value="extra">Extra-large (7-12 ft wide) </option>
-            <option value="monumental">Monumental (12-80 ft wide)</option>
-       </select>
-	
-       <label> Some people are looking to purchase or show work of a certain price-point. Would you say the work you have to offer is typically sold for: (check all that apply?) </label>
-       <label for="100"> Under $100</label>
-       <input type="checkbox" name="100">
-       <label for="500"> $100-$500</label>
-       <input type="checkbox" name="500">
-       <label for="1500"> $500-1500</label>
-       <input type="checkbox" name="1500">
-       <label for="5000"> $1500-5,000</label>
-       <input type="checkbox" name="5000">
-       <label for="15000"> $5,000-15,000</label>
-       <input type="checkbox" name="15000">
-       <label for="30000"> $15,000-30,000</label>
-       <input type="checkbox" name="30000">
-       <label for="Over"> Over $30,000</label>
-       <input type="checkbox" name="Over">
-       
-       <label> What kinds of opportunities are you seeking? (check all that apply)  </label>
-       <label for="Sales"> Sales to private collectors</label>
-       <input type="checkbox" name="Sales">
-       <label for="corp"> Sales to corporate and commercial clients</label>
-       <input type="checkbox" name="corp">
-       <label for="rels"> Relationships with consultants, designers, architects</label>
-       <input type="checkbox" name="rels">
-       <label for="Commissions"> Commissions</label>
-       <input type="checkbox" name="Commissions">
-       <label for="Exhibitions"> Exhibitions</label>
-       <input type="checkbox" name="Exhibitions">
-       <label for="gall"> Relationships with galleries</label>
-       <input type="checkbox" name="gall">
-       <label for="pub">Public Art opportunities</label>
-       <input type="checkbox" name="pub">
-       <label for="media">Media publicity</label>
-       <input type="checkbox" name="media">
-       <label for="OtherMedia"> Other</label>
-       <input type="checkbox" name="OtherMedia"><input type="text" id="OtherMedia" name="OtherMedia">
+                                </li>
+                                <li class="col-md-12">
+                                    <i class="col-md fa fa-instagram"> </i>
+                                    <input type="text" name="instagram" class="col-md-11 form-control">
+                                </li>
+                                <li class="col-md-12">
+                                    <i class="col-md fa fa-pinterest"> </i>
+                                    <input type="text" name="pinterest" class="col-md-11 form-control">
+                                </li>
+                                <li class="col-md-12">
+                                    <i class="col-md fa fa-youtube"> </i>
+                                    <input type="text" name="youtube" class="col-md-11 form-control">
+                                </li>
+                                <li class="col-md-12">
+                                    <i class="col-md fa fa-globe"> </i>
+                                    <input type="text" name="site" class="col-md-11 form-control">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <b for="file[]">Please upload 1-8 jpegs / pngs showing your work </b>
+                            <input class="form-control" type="file" name="file[]" accept="image/png, image/jpeg"
+                                multiple>
+                        </div>
 
+                        <div class=col-md-12>
+                            <b> Is your work (check all that apply)</b>
+                            <br>
 
-        <input type="hidden" name="action" value="contact_form">
-        <input type="submit" name="subMit" value="Send My Message">
-    </form>
-</div>
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="2dmade"
+                                    value="2D made to hang on a wall ">
+                                <p>2D made to hang on a wall </p>
+                            </label>
 
-<?php
-get_footer();
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" value="2dmural" name="2dmural">
+                                <p>2D mural painted directly on a wall </p>
+                            </label>
+
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="3dmade">
+                                <p>3D made to hang on a wall </p>
+                            </label>
+
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="3dceil">
+                                <p>3D meant to hang from the ceiling</p>
+                            </label>
+
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="3dex">
+                                <p>3D meant to be experienced in the round</p>
+                            </label>
+
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="installbased">
+                                <p> Installation-based</p>
+                            </label>
+
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="misc">
+                                <p>Light, digital, or other media</p>
+                            </label>
+
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox">
+                                <p>Other </p>
+                                <input class="form-control" type="text" id="otherValue" name="otherWork">
+
+                            </label>
+                        </div>
 
 
-/* for Functions.php 
-<?php 
-if(isset($_POST['subMit'])){
-	$data= array(
-		'fullname'=>$_POST['fullname']
-		'email'=>$_POST['email']
-		'message'=>$_POST['message']
-	);
-	$table_name ='ArtistProfiles';
-}
-?>
+                        <div class="col-md-12">
+                            <b> Is your work made primarily from (check all that apply) </b>
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="paint">
+                                <p>Paint</p>
+                            </label>
 
-*/
+                            <label class="control-label">
+                                <input class="form-control" type="checkbox" name="photography">
+                                <p>Photography</p>
+                            </label>
+
+                            <label class="control-label"> <input class="form-control" type="checkbox" name="fiber">
+                                Fiber or textile</label>
+
+                            <label class="control-label"> <input class="form-control" type="checkbox" name="wood">
+                                Wood</label>
+
+                            <label class="control-label"> <input class="form-control" type="checkbox" name="metal">
+                                Metal</label>
+
+                            <label class="control-label"> <input class="form-control" type="checkbox" name="glass">
+                                Glass</label>
+
+                            <label class="control-label"> <input class="form-control" type="checkbox" name="ceramic">
+                                Ceramic</label>
+
+                            <label class="control-label"> <input class="form-control" type="checkbox"> Mixed media or
+                                other</label>
+                            <input type="text" id="otherMedia" name="otherMedia">
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <b>
+                            <h6> Some people are looking to support diversity by supporting artists who are aligned with
+                                certain social groups. If you would like to be identified with one of the following
+                                groups, please check as many as apply:</h6>
+                        </b>
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="Black" />
+                            Black</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="Asian" />
+                            Asian</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="Pacific" />
+                            Pacific Islander</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="Native" />
+                            Native American</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="LatinX">
+                            LatinX</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="SouthEast" />
+                            South-East Asian</label>
+
+                        <label class="control-label"><input class="form-control" type="checkbox" name="Euro" />
+                            Euro-Caucasian</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="LGBTQ" />
+                            LGBTQ</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="Disabled">
+                            Disabled</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="Other">
+                            Other</label>
+                        <input type="text" id="otherRace" name="otherRace">
+                        <br>
+                        <br>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <b>How long have you been a practicing artist?</b>
+                            <select name="years">
+                                <option value="0-3 years">0-3 years
+                                </option>
+                                <option value="3-5 years">3-5 years
+                                </option>
+                                <option value="5-10 years">5-10 years
+                                </option>
+                                <option value="10+ years">10+ years
+                                </option>
+                            </select>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-6">
+                            <b>Some people are looking to purchase or show work of a certain size. Would you say the
+                                work you have to offer is typically:</b>
+                            <select name="size">
+                                <option value="Small (under 24 inches wide)">Small (under 24 inches wide)
+                                </option>
+                                <option value="Medium (24-48 inches wide)">Medium (24-48 inches wide)
+                                </option>
+                                <option value="Large (48-84 inches wide)">Large (48-84 inches wide)
+                                </option>
+                                <option value="Extra-large (7-12 ft wide)">Extra-large (7-12 ft wide)
+                                </option>
+                                <option value="Monumental (12-80 ft wide)">Monumental (12-80 ft wide)
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <b>
+                        <h6>Some people are looking to purchase or show work of a certain price-point. Would you say the
+                            work you have to offer is typically sold for: (check all that apply?)</h6>
+                    </b>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="under100"
+                            value="art sold under $100"> Under $100</label>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="btw100500"
+                            value="art sold between $100-$500"> $100-$500</label>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="btw5001500"
+                            value="art sold between $100-$500"> $500-1500</label>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="btw5001500"
+                            value="art sold between $1500-5,000"> $1500-5,000</label>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="btw500015"
+                            value="art sold between $5,000-$15,000"> $5,000-15,000</label>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="btw1530000"
+                            value="art sold between $15,000-$30,000"> $15,000-30,000</label>
+
+                    <label class="control-label"> <input class="form-control" type="checkbox" name="Over"
+                            value="art sold over $30,000"> Over $30,000</label>
+
+
+                    <b>
+                        <h6> What kinds of opportunities are you seeking? (check all that apply)</h6>
+                    </b>
+                    <div>
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="privatecoll"
+                                value="Seeking sales to private collectors"> Sales to private collectors</label>
+                    </div>
+                    <div class="form-row">
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="corpclients"
+                                value="Seeking sales to corporate and commercial clients"> Sales to corporate and
+                            commercial clients</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="consultants"
+                                value="Seeking relationships with consultants, designers, architects" /> Relationships
+                            with consultants, designers, architects</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="commissions"
+                                value="Seeking commissions" /> Commissions</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="exhibitions"
+                                value="Seeking exhibitions" /> Exhibitions</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="galleries"
+                                value="Seeking relationships with galleries"> Relationships with galleries</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="opportunities"
+                                value="Seeking public Art opportunities"> Public Art Opportunities</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox" name="mediapub"
+                                value="Seeking media publicity"> Media publicity</label>
+
+                        <label class="control-label"> <input class="form-control" type="checkbox"> Other</label>
+                        <input type="text" id="OtherMedia" name="otherOps">
+                    </div>
+            
+            <br>
+            <b>
+                <h6>Artist Mission Statement</h6>
+            </b>
+            <textarea class="form-control" name="message"></textarea>
+            <input type="hidden" name="action" value="contact_form">
+            <br>
+
+            <input class="btn btn-dark" type="submit" name="subMit" value="Submit Application">
+
+
+
+
+            </form>
+            </div>
+
+        </div>
+    </div>
+
+</section>
